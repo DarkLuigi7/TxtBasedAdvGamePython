@@ -18,3 +18,12 @@ class Health(Potion):
     def __init__(self, name, weight, value, uses, health):
         super.__init__(name, weight, value, uses)
         self.health = health
+class Damage(Potion):
+    def __init__(self, name, weight, value, uses, duration, multiplier):
+        super.__init__(name, weight, value, uses)
+        self.duration = duration
+        self.multiplier = multiplier
+class Key(Item):
+    def __init__(self, name, weight, value, room):
+        super.__init__(name, weight, value)
+        self.room = room
