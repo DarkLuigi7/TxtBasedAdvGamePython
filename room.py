@@ -3,10 +3,15 @@ class Room():
         self.name = room_name
         self.description = None
         self.linked_rooms = {}
+        self.character = None
     def set_description(self, room_description):
         self.description = room_description
     def get_description(self):
-        return self.description
+        return self.descriptio
+    def set_character(self, character):
+        self.character = character
+    def get_character(self):
+        return self.character
     def set_name(self, name):
         self.name
     def get_name(self):
