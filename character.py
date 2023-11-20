@@ -30,21 +30,27 @@ class Enemy(Character):
       self.weakness = weakness
    def get_weakness(self):
       return self.weakness
-   def fight(self, item):
+   def fight(self, current_room):
+      item = input("choose an item: ")
       if item == self.weakness:
          print(f"{self.name} KO")
-         return True
+         current_room.remove_character(self)
       else:
          print("it isn't very effective")
-         return False
-   def bribe(self, offer):
+         print("\n\n\n\t\tgame over")
+         exit()
+   def bribe(self, current_room):
+      print(f"you try to bribe {self.name}")
+      offer = int(input(f"enter an offer for {choice.name}: "))
       want = random.randrange(5,15)
       if offer > want:
-         print("Dave accept your offer")
-         return False
+         print(f"{self.name} accepts your offer")
+         print(f"{self.name} vacates the area")
+         current_room.remove_character(self)
       else:
          print(f"\"This is not enough!!!! I wanted at least {want} gold!!!!\"")
          print(f"{self.name} initiates a fight with you")
-         return True
-      
-
+         item = input("choose an item: ")
+         self.fight(item, current_room)
+class Friend(Character):
+   pass
